@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import PrivateRoute from './components/PrivateRoute'
 import BookDetail from './pages/BookDetail'
 import AddBook from './pages/AddBook'
+import EditBook from './pages/EditBook'
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         }/>
         <Route path='add-book' element={
           <AddBook/>
+        }/><Route path='edit-book/:id' element={
+          <EditBook/>
         }/>
         <Route path='/login' element={<Login/>}/>
       </Routes>

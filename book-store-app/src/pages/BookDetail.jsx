@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 const BookDetail = () => {
     const {id} = useParams();
     const [book, setBook] = useState();
     const[loading, setLoading] = useState(true)
     const[error, setError] = useState(null)
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 useEffect(()=>{
     const fecthBooks =async()=>{
@@ -33,6 +33,7 @@ if(error) return <p>{error}</p>
             <h3>Author: {book.author}</h3>
             <h3>Price: {book.price}</h3>
             <p><strong>Published: </strong>{book.publishingYear}</p>
+            <button onClick={()=>navigate(`/edit-book/${book.id}`)}>Edit Book</button>
         </div>
       
     </div>
